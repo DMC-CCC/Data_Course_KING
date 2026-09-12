@@ -11,3 +11,4 @@ I noticed that I now have an .RHistory folder in my Data_Course_KING folder??
 Also, there has to be a way to make the process easier because my laptop says to ise the insert button to copy code into the terminal but I don't see an insert button??
 I technically don't need to make any more changes to fulfill the assignment but I want to say one last thing. I am very nervous about keeping up with the course work and even the next assiginment. I know I'm behind but I have a meeting on Tuesday that I am hoping will bring some clarity. 
 That's all for now. 
+Ok, I lied. I have one last thing that I want to check with git so this is the final final commit... for now. 
