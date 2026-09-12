@@ -8,4 +8,4 @@ The above mentioned error message is random and will happen when I haven't chang
 Now I am starting to get the error every single time. I do not have a clue what it's talking about and I just get out of it by using ctrl C.
 How do I do multiple lines of code within the terminal? Or must I always construct them within the text editor and then paste them into git?
  I noticed that I now have an .RHistory folder in my Data_Course_KING folder??
- 
+ Also, there has to be a way to make the process easier because my laptop says to ise the insert button to copy code into the terminal but I don't see an insert button??
