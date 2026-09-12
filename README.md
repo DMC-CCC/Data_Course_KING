@@ -1,7 +1,7 @@
 # Data_Course_KING
 This README file contains information about my uploaded assignments
 Ok, I think I'm starting to get the hang of this. Still a bit confused but I feel like the process is getting easier. 
-This README file contains information about my uploaded assignments
+Is there a way for me to edit this file within the terminal? Or must I make edits in the file directly and then commit them using git?
 This README file contains information about my uploaded assignments
 This README file contains information about my uploaded assignments
 This README file contains information about my uploaded assignments
