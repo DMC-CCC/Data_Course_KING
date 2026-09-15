@@ -12,3 +12,4 @@ Also, there has to be a way to make the process easier because my laptop says to
 I technically don't need to make any more changes to fulfill the assignment but I want to say one last thing. I am very nervous about keeping up with the course work and even the next assiginment. I know I'm behind but I have a meeting on Tuesday that I am hoping will bring some clarity. 
 That's all for now. 
 Ok, I lied. I have one last thing that I want to check with git so this is the final final commit... for now. 
+This is a test line to try editing directly from the terminal.
