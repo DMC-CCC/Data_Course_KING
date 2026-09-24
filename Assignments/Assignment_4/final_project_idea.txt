@@ -1,0 +1,13 @@
+I'm not going to lie. I feel pretty lost on this idea. I know we're supposed to be creative
+and come up with something fun and original but at this moment, my brain fog is so thick. I 
+feel like I can't think straight. But what I will submit for now is I'm thinking about looking 
+at weather data for the state of Utah. I'm not sure how many years will be sufficient but I 
+want to see if we can compare the temperature of the summer to the snow fall in the winter and 
+see if I can create a predictive model for snow based on summer temperatures. There may be no 
+correlation at all but maybe there is and it would be nice to be able to predict the snow fall
+even if it's not super accurate. A vague idea is better than hopes and prayers.
+
+I'm very open to suggestions and wouldn't mind chatting if you feel this is an idea that is
+missing the mark or have a modification to make that would better fit the project. I'm also still
+trying to nail down my honors project so I might pivot at some point but I will try to figure out
+my honors project (for real this time) and see if it's something that could also work here. 
