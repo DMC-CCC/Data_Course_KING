@@ -1,7 +1,7 @@
 #I.
-read.csv("C:/Users/devil/OneDrive - Utah Valley University/Desktop/Data_Course_KING/BIOL3100_Exams/Exam_1/cleaned_covid_data.csv") 
+read.csv("cleaned_covid_data.csv") 
     #this is to read the data set so that it can be turned into a dataframe
-Covid_Data = read.csv("C:/Users/devil/OneDrive - Utah Valley University/Desktop/Data_Course_KING/BIOL3100_Exams/Exam_1/cleaned_covid_data.csv") 
+Covid_Data = read.csv("cleaned_covid_data.csv") 
     #this creates the dataframe and assigns it the name Covid_Data
 
 #II.
