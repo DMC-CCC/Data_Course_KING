@@ -1,0 +1,89 @@
+First, we can load the *tidyverse* package and import an untidy data set
+
+```{r, echo=TRUE,message=FALSE,warning=FALSE}
+library(tidyverse)
+dat <- read_csv("../../Data/BioLog_Plate_Data.csv") # you may need to modify this path to fit where this file is stored relative to your assignment 6 script
+
+
+# Your task is to Write an R script that:
+
+1.  Cleans this data into tidy (long) form
+
+#When I loaded this data into my R-Studio, it was already in long form but I will write a script that would do it longer??
+dat_long <- dat %>% pivot_longer(
+cols = c("Hr_24", "Hr_48", "Hr_144"),
+names_to = "Time",
+values_to = "Absorbance"
+)
+#This makes the data longer by increasing observations from 1152 to 3456. I would definitely say that is the long form.
+
+2.  Creates a new column specifying whether a sample is from soil or water
+
+dat_sample_type <- dat_long %>%
+mutate(Sample_Type = case_when(
+`Sample ID` == "Soil_1" ~ "Soil",
+`Sample ID` == "Soil_2" ~ "Soil",
+`Sample ID` == "Clear_Creek" ~ "Water",
+`Sample ID` == "Waste_Water" ~ "Water",
+))
+#This code could probably be cleaner but I wanted it all spaced out to make sure I wasn't missing anything. 
+#It's important to note that ` is different than ' and using the first one will tell R that it's looking at a column name.
+
+#I also want to note that if there were other values not being specified, you should add .default = "whatever" so that other rows that don't fit a given condition will be accounted for. The catch all statement if you will.
+
+3.  Generates a plot that matches this one (note just plotting dilution == 0.1):
+
+dat_sample_type$Time_Hours <- as.numeric(gsub("Hr_", "", dat_sample_type$Time))
+#This command creates a new column in the tibble so that our hours can actually be charted as time rather than fixed points of data. 
+
+ggplot(data = dat_sample_type, mapping = aes(x = Time_Hours, y = Absorbance, color = Sample_Type, group = Sample_Type)) + 
+  geom_smooth(method = "loess", se = FALSE, span = 1) +
+  facet_wrap(~ Substrate) + 
+  scale_x_continuous(
+    breaks = c(50, 100, 150),           
+    limits = c(0, 150)                
+  ) + 
+  labs(
+    subtitle = "Just dilution = 0.1", 
+    x = "Time (Hours)", 
+    y = "Absorbance", 
+    color = "Sample_Type"
+  )
+#This graph still isn't identical to the one we are given but I think there is differences between the data we have and the data used to create the sample graph so I got it as close as I could. I cannot identify an error I may have made that would make them look different from each other. 
+
+4.  Generates an animated plot that matches this one (absorbance values are mean of all 3 replicates for each group):
+
+This plot is just showing values for the substrate "Itaconic Acid"
+
+
+dat_means <- dat_sample_type %>%
+  group_by(Substrate, Dilution, `Sample ID`, Time_Hours) %>% 
+  summarise(Mean_absorbance = mean(Absorbance, na.rm = TRUE), .groups = "drop")
+#First we need to calculate the mean absorbance of things.
+
+dat_Itaconic_Acid <- dat_means %>%
+  filter(Substrate == "Itaconic Acid")
+#This creates the tibble to graph the mean absorbance over time for Itaconic Acid. Can be modified for any substrate in the data. 
+
+anim_plot <- ggplot(data = dat_Itaconic_Acid, 
+                    mapping = aes(x = Time_Hours, 
+                                  y = Mean_absorbance, 
+                                  color = `Sample ID`,        
+                                  group = `Sample ID`)) +     
+  geom_line(size = 0.8) +                  
+  geom_point(size = 1.5) +                 
+  facet_wrap(~ Dilution) +              
+  theme_minimal() + 
+  scale_x_continuous(
+    breaks = c(50, 100, 150), 
+    limits = c(0, 150)
+  ) + 
+  labs(
+    title = "Absorbance Progression for Itaconic Acid",
+    x = "Time",                    
+    y = "Mean_absorbance",          
+    color = "Sample ID"             
+  ) +
+  transition_reveal(Time_Hours)
+  
+animate(anim_plot, renderer = gifski_renderer(), width = 800, height = 450, res = 100)
